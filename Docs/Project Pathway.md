@@ -1,0 +1,23 @@
+- [ ] Planning and Setup
+	- App Structure
+	- Project repository
+	- Tools installation
+- [ ] UI Design
+	- Wireframes
+	- Hi fidelity UI
+	- Flows and Mockups
+- [ ] Backend with Firebase
+	- Setup Project
+	- Design Schema
+- [ ] Frontend in Compose
+	- Set up Project
+	- Navigation
+	- QR Scanning
+	- Firebase connect
+	- UI
+- [ ] Testing, Debugging
+	- Unit and Integration testing, Bug fixing
+- [ ] Finalization
+	- Performance Optimization
+
+
