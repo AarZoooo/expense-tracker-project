@@ -30,7 +30,18 @@ class FirebaseManager {
     }
 
     // New User Registration
-    fun addUser(user: User, completion: (Boolean, String?) -> Unit) {
+    fun createUser(user: User, completion: (Boolean, String?) -> Unit) {
+        db.collection("Users")
+            .add(user)
+            .addOnSuccessListener { document ->
+                Log.w("AddUser", "User added successfully; ID: ${document.id}")
+            }
+            .addOnFailureListener { exception ->
+                Log.w("AddUser", "Error adding user", exception)
+            }
+    }
+
+    fun emailVerification(user: User, callback: (Boolean) -> Unit) {
 
     }
 }
