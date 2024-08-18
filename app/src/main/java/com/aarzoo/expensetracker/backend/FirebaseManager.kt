@@ -1,10 +1,11 @@
 package com.aarzoo.expensetracker.backend
 
+import android.util.Log
 import com.google.firebase.auth.FirebaseAuth
-import com.google.firebase.firestore.FirebaseFirestore
-import com.google.firebase.ktx.Firebase
 import com.google.firebase.auth.ktx.auth
+import com.google.firebase.firestore.FirebaseFirestore
 import com.google.firebase.firestore.ktx.firestore
+import com.google.firebase.ktx.Firebase
 
 class FirebaseManager {
 
@@ -12,15 +13,24 @@ class FirebaseManager {
     private val auth: FirebaseAuth = Firebase.auth
     private val db: FirebaseFirestore = Firebase.firestore
 
-    // New User Registration
-    fun addUser(user: User, completion: (Boolean, String?) -> Unit) {
-        // Create a new user document in the "users" collection
-        db.collection("Users").document(user.uid).set(user)
-            .addOnSuccessListener {
-                completion(true, null)
+    // --- User Management ---
+
+    // Check if User already exists with email
+    fun checkIfEmailExists(email: String, callback: (Boolean) -> Unit) {
+        db.collection("Users")
+            .whereEqualTo("uEMAIL", email)
+            .get()
+            .addOnSuccessListener { document ->
+                callback(document.isEmpty.not())
             }
             .addOnFailureListener { exception ->
-                completion(false, exception.localizedMessage)
+                Log.w("CheckIfEmailExists", "Error checking email existence", exception)
+                callback(false)
             }
+    }
+
+    // New User Registration
+    fun addUser(user: User, completion: (Boolean, String?) -> Unit) {
+
     }
 }
