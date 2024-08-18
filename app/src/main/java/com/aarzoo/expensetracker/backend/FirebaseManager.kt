@@ -13,5 +13,14 @@ class FirebaseManager {
     private val db: FirebaseFirestore = Firebase.firestore
 
     // New User Registration
-
+    fun addUser(user: User, completion: (Boolean, String?) -> Unit) {
+        // Create a new user document in the "users" collection
+        db.collection("Users").document(user.uid).set(user)
+            .addOnSuccessListener {
+                completion(true, null)
+            }
+            .addOnFailureListener { exception ->
+                completion(false, exception.localizedMessage)
+            }
+    }
 }
