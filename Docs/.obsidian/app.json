@@ -1,1 +1,9 @@
-{}
+{
+  "readableLineLength": true,
+  "propertiesInDocument": "visible",
+  "foldHeading": false,
+  "showLineNumber": true,
+  "spellcheck": false,
+  "showInlineTitle": false,
+  "showRibbon": false
+}
