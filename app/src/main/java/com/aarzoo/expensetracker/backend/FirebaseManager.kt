@@ -13,7 +13,15 @@ class FirebaseManager {
     private val auth: FirebaseAuth = Firebase.auth
     private val db: FirebaseFirestore = Firebase.firestore
 
-    // --- User Management ---
+
+    // Check if email is in correct format
+    fun isValidEmail(email: String): Boolean {
+        val emailRegex = "^[A-Za-z0-9._%+-]+@[A-Za-z0-9.-]+\\.[A-Za-z]{2,4}$".toRegex()
+        return emailRegex.matches(email)
+    }
+
+
+    // ----- User Management -----
 
     // Check if User already exists with email
     fun checkIfEmailExists(email: String, callback: (Boolean) -> Unit) {
@@ -29,8 +37,8 @@ class FirebaseManager {
             }
     }
 
-    // New User Registration
-    fun createUser(user: User, completion: (Boolean, String?) -> Unit) {
+    // Adding new User in Database
+    fun registerUser(user: User) {
         db.collection("Users")
             .add(user)
             .addOnSuccessListener { document ->
@@ -39,9 +47,5 @@ class FirebaseManager {
             .addOnFailureListener { exception ->
                 Log.w("AddUser", "Error adding user", exception)
             }
-    }
-
-    fun emailVerification(user: User, callback: (Boolean) -> Unit) {
-
     }
 }
