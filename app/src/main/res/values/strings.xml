@@ -1,3 +1,7 @@
 <resources>
-    <string name="app_name">Expense Tracker</string>
+    <string name="appName">Expense Tracker</string>
+    <string name="description">Effortlessly track and manage your expenses with a simple scan. Organize your spending, stay within budget, and gain control of your finances—all in one app.</string>
+    <string name="verifyMessage">A mail has been sent to your email address. Just press the Verify button in that email, and this page will automatically proceed.</string>
+    <string name="monthlyBudgetMessage">This will be just an indicator of how much you spent from the monthly budget. You can change this anytime in User Settings.</string>
+    <string name="categoryMessage">No categories created yet. To organize your transactions, create categories. Click on the Add button to create one.</string>
 </resources>

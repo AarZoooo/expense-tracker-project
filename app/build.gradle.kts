@@ -5,11 +5,11 @@ plugins {
 }
 
 android {
-    namespace = "com.example.expensetracker"
+    namespace = "com.aarzoo.expensetracker"
     compileSdk = 34
 
     defaultConfig {
-        applicationId = "com.example.expensetracker"
+        applicationId = "com.aarzoo.expensetracker"
         minSdk = 24
         targetSdk = 34
         versionCode = 1
